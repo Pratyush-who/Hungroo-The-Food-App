@@ -17,3 +17,18 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/fonts/Roboto-BoldCondensed.ttf
+    - assets/fonts/Roboto-BlackItalic.ttf
+    - assets/fonts/Roboto-Black.ttf
+  fonts:
+    - family: RobotoBoldCondensed
+      fonts:
+        - asset: assets/fonts/Roboto-BoldCondensed.ttf
+    - family: RobotoBlackItalic
+      fonts:
+        - asset: assets/fonts/Roboto-BlackItalic.ttf
+    - family: RobotoBlack
+      fonts:
+        - asset: assets/fonts/Roboto-Black.ttf
+     
