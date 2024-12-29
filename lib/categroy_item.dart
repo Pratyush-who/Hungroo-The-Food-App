@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hungroo/category_meals_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   final String title;
   final String id;
   final Color color;
 
-  CategoryItem(this.title, this.color, this.id);
+  const CategoryItem(this.title, this.color, this.id, {super.key});
 
   void selectCategory(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
-      '/category-meals',
+      CategoryMealsScreen.routeName,
       arguments: {
         'id': id,
         'title': title,
@@ -24,11 +25,7 @@ class CategoryItem extends StatelessWidget {
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
       child: Container(
-        padding: EdgeInsets.all(15),
-        child: Text(
-          title,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-        ),
+        padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -39,6 +36,10 @@ class CategoryItem extends StatelessWidget {
               end: Alignment.bottomRight,
             ),
             borderRadius: BorderRadius.circular(15)),
+        child: Text(
+          title,
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+        ),
       ),
     );
   }

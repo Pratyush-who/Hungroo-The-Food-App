@@ -22,9 +22,9 @@ flutter:
     - assets/fonts/Roboto-BlackItalic.ttf
     - assets/fonts/Roboto-Black.ttf
   fonts:
-    - family: RobotoBoldCondensed
+    - family: RobotoLight
       fonts:
-        - asset: assets/fonts/Roboto-BoldCondensed.ttf
+        - asset: assets/fonts/Roboto-Light.ttf
     - family: RobotoBlackItalic
       fonts:
         - asset: assets/fonts/Roboto-BlackItalic.ttf

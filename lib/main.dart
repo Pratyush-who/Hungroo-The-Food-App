@@ -7,6 +7,8 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
+  const MainApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,16 +16,18 @@ class MainApp extends StatelessWidget {
       title: "Hungroo",
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
-        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'RobotoBlackItalic',
         textTheme: ThemeData.light().textTheme.copyWith(
-              bodyLarge: TextStyle(
+              bodyLarge: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
             ),
       ),
-      home: CategoriesScreen(),
-      routes: {'/category-meals': (ctx) => CategoryMealsScreen()},
+      home: const CategoriesScreen(),
+      routes: {
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+      },
     );
   }
 }
