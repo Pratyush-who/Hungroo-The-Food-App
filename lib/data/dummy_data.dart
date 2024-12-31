@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import './models/meal.dart';
+import '../models/meal.dart';
 
-import './models/category.dart';
+import '../models/category.dart';
 
 const DUMMY_CATEGORIES = [
   const Category(id: 'c1', title: 'Italian', color: Colors.indigo),
@@ -17,7 +17,7 @@ const DUMMY_CATEGORIES = [
   const Category(
       id: 'c7', title: 'French', color: Color.fromARGB(255, 255, 3, 91)),
   const Category(
-      id: 'c8', title: 'South Indian', color: Color.fromARGB(255, 95, 7, 63)),
+      id: 'c8', title: 'South Indian', color: Color.fromARGB(255, 68, 5, 45)),
   const Category(
       id: 'c9', title: 'American', color: Color.fromARGB(255, 200, 249, 2)),
   const Category(
