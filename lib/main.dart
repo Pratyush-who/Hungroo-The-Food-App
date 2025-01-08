@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hungroo/screens/category_meals_screen.dart';
+import 'package:hungroo/screens/meal_detail_screen.dart';
 import 'screens/categories_screen.dart';
 
 void main() {
@@ -16,6 +17,9 @@ class MainApp extends StatelessWidget {
       title: "Hungroo",
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.pink,
+        ),
         canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'RobotoBlackItalic',
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -27,6 +31,7 @@ class MainApp extends StatelessWidget {
       home: const CategoriesScreen(),
       routes: {
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
       },
     );
   }
