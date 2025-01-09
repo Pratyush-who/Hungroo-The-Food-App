@@ -7,19 +7,7 @@ class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Hungroo',
-          style: TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.w400,
-            fontFamily: 'RobotoBlack',
-          ),
-        ),
-        backgroundColor: Colors.pink,
-      ),
-      body: Container(
+    return Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
           colors: [Colors.black, Color.fromARGB(255, 105, 6, 122)],
@@ -39,7 +27,6 @@ class CategoriesScreen extends StatelessWidget {
                   CategoryItem(catData.title, catData.color, catData.id))
               .toList(),
         ),
-      ),
     );
   }
 }
