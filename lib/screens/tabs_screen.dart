@@ -34,7 +34,7 @@ class _TabsScreenState extends State<TabsScreen> {
             const SizedBox(
               width: 10,
             ),
-            Text(
+            const Text(
               'Hungroo',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w600),
 

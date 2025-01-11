@@ -10,6 +10,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function removeElement;
 
   String get complexityText {
     switch (complexity) {
@@ -43,16 +44,25 @@ class MealItem extends StatelessWidget {
     }
   }
 
-  MealItem(
-      {required this.id,
-      required this.title,
-      required this.imgUrl,
-      required this.duration,
-      required this.complexity,
-      required this.affordability});
+  MealItem({
+    required this.id,
+    required this.title,
+    required this.imgUrl,
+    required this.duration,
+    required this.complexity,
+    required this.affordability,
+    required this.removeElement,
+  });
 
   void selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed(MealDetailScreen.routeName, arguments: id);
+    Navigator.of(context)
+        .pushNamed(MealDetailScreen.routeName, arguments: id)
+        .then((result) => {
+              if (result != null)
+                {
+                  removeElement(result),
+                }
+            });
   }
 
   @override
@@ -107,7 +117,7 @@ class MealItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
@@ -133,7 +143,27 @@ class MealItem extends StatelessWidget {
                       SizedBox(
                         width: 6,
                       ),
-                      Text(complexityText),
+                      Text('$AffordabilityText'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      // IconButton.filled(onPressed: null, icon: Icon(Icons.start)),
+                      ElevatedButton.icon(
+                        onPressed: () => selectMeal(context),
+                        label: Text("Cook", style: TextStyle(fontSize: 14)),
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor:
+                              Colors.pinkAccent, // Text and icon color
+                          shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.circular(30.0), // Rounded edges
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10), // Button padding
+                        ),
+                      ),
                     ],
                   ),
                 ],

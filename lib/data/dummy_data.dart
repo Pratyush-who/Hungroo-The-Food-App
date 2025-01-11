@@ -4,7 +4,7 @@ import '../models/meal.dart';
 import '../models/category.dart';
 
 const DUMMY_CATEGORIES = [
-  const Category(id: 'c1', title: 'Italian', color: Colors.indigo),
+   Category(id: 'c1', title: 'Italian', color: Colors.indigo),
   const Category(id: 'c2', title: 'Quik & Ez', color: Colors.red),
   const Category(
       id: 'c3', title: 'Hamburgers', color: Color.fromARGB(255, 226, 109, 30)),
@@ -31,6 +31,10 @@ const DUMMY_MEALS = const [
     categories: [
       'c1',
       'c2',
+      'c3',
+      'c4',
+      'c7',
+
     ],
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.Affordable,
@@ -64,6 +68,9 @@ const DUMMY_MEALS = const [
     id: 'm2',
     categories: [
       'c2',
+      'c7',
+      'c4',
+      'c1',
     ],
     title: 'Toast Hawaii',
     affordability: Affordability.Affordable,
@@ -92,7 +99,10 @@ const DUMMY_MEALS = const [
     id: 'm3',
     categories: [
       'c2',
+      'c1',
       'c3',
+      'c5',
+      'c4',
     ],
     title: 'Classic Hamburger',
     affordability: Affordability.Pricy,
@@ -124,6 +134,11 @@ const DUMMY_MEALS = const [
     id: 'm4',
     categories: [
       'c4',
+      'c7',
+      'c8',
+      'c6',
+      'c2',
+      'c1',
     ],
     title: 'Wiener Schnitzel',
     affordability: Affordability.Luxurious,
@@ -159,8 +174,11 @@ const DUMMY_MEALS = const [
     id: 'm5',
     categories: [
       'c2'
-          'c5',
+      'c9'
+      'c1'
+      'c5',
       'c10',
+      'c6',
     ],
     title: 'Salad with Smoked Salmon',
     affordability: Affordability.Luxurious,
@@ -195,6 +213,8 @@ const DUMMY_MEALS = const [
     id: 'm6',
     categories: [
       'c6',
+      'c1',
+      'c9',
       'c10',
     ],
     title: 'Delicious Orange Mousse',
@@ -231,6 +251,10 @@ const DUMMY_MEALS = const [
     id: 'm7',
     categories: [
       'c7',
+      'c3',
+      'c2',
+      'c5',
+      'c6',
     ],
     title: 'Pancakes',
     affordability: Affordability.Affordable,
@@ -262,6 +286,12 @@ const DUMMY_MEALS = const [
     id: 'm8',
     categories: [
       'c8',
+      'c3',
+      'c7',
+      'c2',
+      'c4',
+      'c5',
+      'c3',
     ],
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.Pricy,
@@ -295,6 +325,13 @@ const DUMMY_MEALS = const [
     id: 'm9',
     categories: [
       'c9',
+      'c4',
+      'c3',
+      'c6',
+      'c5',
+      'c7',
+      'c8',
+      'c10',
     ],
     title: 'Chocolate Souffle',
     affordability: Affordability.Affordable,
@@ -344,7 +381,11 @@ const DUMMY_MEALS = const [
     id: 'm10',
     categories: [
       'c2',
+      'c7',
+      'c1',
       'c5',
+      'c3',
+      'c4',
       'c10',
     ],
     title: 'Asparagus Salad with Cherry Tomatoes',
