@@ -3,6 +3,7 @@ import 'package:hungroo/screens/category_meals_screen.dart';
 import 'package:hungroo/screens/meal_detail_screen.dart';
 import 'package:hungroo/screens/tabs_screen.dart';
 import 'screens/categories_screen.dart';
+import 'screens/filters_screen.dart';
 
 void main() {
   runApp(MainApp());
@@ -10,6 +11,7 @@ void main() {
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,7 @@ class MainApp extends StatelessWidget {
         '/':(ctx)=>TabsScreen(),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        FiltersScreen.routeName: (ctx) => FiltersScreen(),
       },
       // onGenerateRoute: (settings) {
       //   print(settings.name.arguments);

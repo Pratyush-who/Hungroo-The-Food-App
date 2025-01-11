@@ -5,23 +5,25 @@ import '../models/category.dart';
 
 const DUMMY_CATEGORIES = [
   const Category(id: 'c1', title: 'Italian', color: Colors.indigo),
-  const Category(id: 'c2', title: 'Chinese', color: Colors.red),
+  const Category(id: 'c2', title: 'Quik & Ez', color: Colors.red),
   const Category(
-      id: 'c3', title: 'Indian', color: Color.fromARGB(255, 226, 109, 30)),
+      id: 'c3', title: 'Hamburgers', color: Color.fromARGB(255, 226, 109, 30)),
   const Category(
-      id: 'c4', title: 'Spanish', color: Color.fromARGB(255, 52, 236, 6)),
+      id: 'c4', title: 'German', color: Color.fromARGB(255, 52, 236, 6)),
   const Category(
-      id: 'c5', title: 'German', color: Color.fromARGB(255, 22, 218, 113)),
+      id: 'c5',
+      title: 'Light & Lovely',
+      color: Color.fromARGB(255, 22, 218, 113)),
   const Category(
-      id: 'c6', title: 'American', color: Color.fromARGB(255, 143, 30, 102)),
+      id: 'c6', title: 'Exotic', color: Color.fromARGB(255, 143, 30, 102)),
   const Category(
-      id: 'c7', title: 'French', color: Color.fromARGB(255, 255, 3, 91)),
+      id: 'c7', title: 'Breakfast', color: Color.fromARGB(255, 255, 3, 91)),
   const Category(
-      id: 'c8', title: 'South Indian', color: Color.fromARGB(255, 48, 121, 147)),
+      id: 'c8', title: 'Indian', color: Color.fromARGB(255, 48, 121, 147)),
   const Category(
-      id: 'c9', title: 'American', color: Color.fromARGB(255, 200, 249, 2)),
+      id: 'c9', title: 'Cake', color: Color.fromARGB(255, 200, 249, 2)),
   const Category(
-      id: 'c10', title: 'Mexican', color: Color.fromARGB(255, 13, 159, 125)),
+      id: 'c10', title: 'French', color: Color.fromARGB(255, 13, 159, 125)),
 ];
 const DUMMY_MEALS = const [
   Meal(

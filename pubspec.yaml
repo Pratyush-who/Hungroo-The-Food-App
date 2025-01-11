@@ -19,7 +19,7 @@ dev_dependencies:
 
 flutter_icons:
   android: true
-  image_path: "assets/images/images.jpeg"
+  image_path: "assets/images/images.png"
 
 flutter:
   uses-material-design: true
@@ -27,6 +27,7 @@ flutter:
     - assets/fonts/Roboto-BoldCondensed.ttf
     - assets/fonts/Roboto-BlackItalic.ttf
     - assets/fonts/Roboto-Black.ttf
+    - assets/images/images.png
   fonts:
     - family: RobotoLight
       fonts:
