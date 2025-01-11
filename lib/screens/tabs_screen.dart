@@ -3,19 +3,18 @@ import 'package:hungroo/screens/categories_screen.dart';
 import 'package:hungroo/screens/favourites_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hungroo/widgets/main_drawer.dart';
+import 'package:hungroo/models/meal.dart';
 
 class TabsScreen extends StatefulWidget {
-  const TabsScreen({super.key});
+  final List<Meal> favouriteMeals;
+  TabsScreen(this.favouriteMeals);
 
   @override
   State<TabsScreen> createState() => _TabsScreenState();
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  final List pages = [
-    CategoriesScreen(),
-    FavouritesScreen(),
-  ];
+  late List<Widget> pages;
   int selectedPageIndex = 0;
 
   void selectPage(int index) {
@@ -25,15 +24,20 @@ class _TabsScreenState extends State<TabsScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    pages = [
+      CategoriesScreen(),
+      FavouritesScreen(widget.favouriteMeals),
+    ];
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Row(
           children: [
-            Image.asset('assets/images/images.png', height: 40),
-            const SizedBox(
-              width: 10,
-            ),
             const Text(
               'Hungroo',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w600),
@@ -61,7 +65,7 @@ class _TabsScreenState extends State<TabsScreen> {
         //   ],
         // ),
       ),
-      endDrawer: MainDrawer(),
+      drawer: MainDrawer(),
       body: pages[selectedPageIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: selectPage,
