@@ -28,6 +28,11 @@ flutter:
     - assets/fonts/Roboto-BlackItalic.ttf
     - assets/fonts/Roboto-Black.ttf
     - assets/images/images.png
+    - assets/images/crown.png
+    - assets/images/iconss.jpg
+    - assets/images/filters.png
+    - assets/images/recepie.png
+    - assets/images/chef.png
   fonts:
     - family: RobotoLight
       fonts:

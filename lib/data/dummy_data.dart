@@ -7,7 +7,7 @@ const DUMMY_CATEGORIES = [
    Category(id: 'c1', title: 'Italian', color: Colors.indigo),
   const Category(id: 'c2', title: 'Quik & Ez', color: Colors.red),
   const Category(
-      id: 'c3', title: 'Hamburgers', color: Color.fromARGB(255, 226, 109, 30)),
+      id: 'c3', title: 'Burgers', color: Color.fromARGB(255, 226, 109, 30)),
   const Category(
       id: 'c4', title: 'German', color: Color.fromARGB(255, 52, 236, 6)),
   const Category(

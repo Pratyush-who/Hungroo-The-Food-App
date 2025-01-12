@@ -35,21 +35,40 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Row(
           children: [
             const Text(
-              'Hungroo',
+              ' ',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w600),
-
-              // style: GoogleFonts.poppins(
-              //   textStyle: TextStyle(
-              //     fontWeight: FontWeight.w500,
-              //     fontSize: 20,
-              //   ),
-              // )
             ),
+            SizedBox(
+              width: 210,
+            ),
+            Image.asset(
+              'assets/images/crown.png',
+              height: 30,
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            Icon(Icons.notifications_active_outlined),
           ],
+        ),
+        leading: Builder(
+          builder: (context) => GestureDetector(
+            onTap: () => Scaffold.of(context).openDrawer(),
+            child: Container(
+              margin: const EdgeInsets.only(
+                  left: 16.0, top: 10.0), // Adjust margin here
+              child: Image.asset(
+                'assets/images/iconss.jpg', // Custom icon for the drawer
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
         ),
         // bottom: TabBar(
         //   labelColor: Colors.white70,
@@ -69,14 +88,14 @@ class _TabsScreenState extends State<TabsScreen> {
       body: pages[selectedPageIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: selectPage,
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: Color.fromARGB(255, 228, 81, 81),
         unselectedItemColor: Colors.black,
         selectedItemColor: Colors.white70,
         currentIndex: selectedPageIndex,
         type: BottomNavigationBarType.shifting,
         items: const [
           BottomNavigationBarItem(
-              backgroundColor: Colors.pinkAccent,
+              backgroundColor: Color.fromARGB(255, 228, 81, 81),
               icon: Icon(Icons.category),
               label: 'Categories'),
           BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Starred'),

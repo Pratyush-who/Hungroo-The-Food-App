@@ -44,7 +44,7 @@ class MainDrawer extends StatelessWidget {
                       color: Colors.black),
                 ),
                 Text(
-                  'Let Hungroo feed you..!!',
+                  'Lets COOK with Hungroo..!!',
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w400,
