@@ -4,7 +4,7 @@ import 'package:hungroo/screens/category_meals_screen.dart';
 class CategoryItem extends StatelessWidget {
   final String title;
   final String id;
-  final String imageUrl;  // Change from Color to String for image path
+  final String imageUrl; // Change from Color to String for image path
 
   const CategoryItem(this.title, this.imageUrl, this.id, {super.key});
 
@@ -29,8 +29,9 @@ class CategoryItem extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
-            image: AssetImage(imageUrl),  // Set image here
-            fit: BoxFit.cover,  // You can adjust this based on how you want the image to appear
+            image: AssetImage(imageUrl), // Set image here
+            fit: BoxFit
+                .cover, // You can adjust this based on how you want the image to appear
           ),
         ),
         child: Container(
@@ -43,7 +44,14 @@ class CategoryItem extends StatelessWidget {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
-              color: Colors.white,  // White text for better visibility on dark backgrounds
+              color: Colors.white,
+              shadows: [
+                Shadow(
+                  blurRadius: 10,
+                  color: Colors.black.withOpacity(0.7),
+                  offset: Offset(3, 3),
+                ),
+              ],
             ),
           ),
         ),
