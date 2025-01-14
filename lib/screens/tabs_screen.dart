@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hungroo/screens/categories_screen.dart';
 import 'package:hungroo/screens/favourites_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hungroo/widgets/bottom_navi_bar.dart';
 import 'package:hungroo/widgets/main_drawer.dart';
 import 'package:hungroo/models/meal.dart';
 
@@ -86,21 +87,22 @@ class _TabsScreenState extends State<TabsScreen> {
       ),
       drawer: MainDrawer(),
       body: pages[selectedPageIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: selectPage,
-        backgroundColor: Color.fromARGB(255, 228, 81, 81),
-        unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.white70,
-        currentIndex: selectedPageIndex,
-        type: BottomNavigationBarType.shifting,
-        items: const [
-          BottomNavigationBarItem(
-              backgroundColor: Color.fromARGB(255, 228, 81, 81),
-              icon: Icon(Icons.category),
-              label: 'Categories'),
-          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Starred'),
-        ],
-      ),
+
+      bottomNavigationBar: CustomBottomNavigationBar(onPageSelect: (int ) { },),
+      //   BottomNavigationBar(
+      //   onTap: selectPage,
+      //   backgroundColor: Colors.deepPurple,
+      //   unselectedItemColor: Colors.yellow,
+      //   selectedItemColor: Colors.greenAccent,
+      //   currentIndex: selectedPageIndex,
+      //   type: BottomNavigationBarType.fixed,
+      //   items: const [
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.category),
+      //         label: 'Categories'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Starred'),
+      //   ],
+      // ),
       // TabBarView(
       //   children: [
       //     CategoriesScreen(),

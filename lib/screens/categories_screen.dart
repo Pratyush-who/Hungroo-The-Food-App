@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:hungroo/screens/filters_screen.dart';
 import 'package:hungroo/widgets/categroy_item.dart';
 import '../data/dummy_data.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -113,19 +114,25 @@ class CategoriesScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 15),
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 228, 81, 81),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Image.asset(
-                        'assets/images/filters.png', // Replace with your image path
-                        height: 28,
-                        width: 28,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(FiltersScreen.routeName);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 228, 81, 81),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(3.0),
+                        child: Image.asset(
+                          'assets/images/filters.png', // Replace with your image path
+                          height: 28,
+                          width: 28,
+                        ),
                       ),
                     ),
                   ),
@@ -135,12 +142,25 @@ class CategoriesScreen extends StatelessWidget {
           ),
           Container(
             child: Padding(
-              padding: const EdgeInsets.only(top: 5,bottom: 25,left: 25,),
+              padding: const EdgeInsets.only(
+                top: 5,
+                bottom: 25,
+                left: 25,
+              ),
               child: Row(
                 children: [
-                  Text('Top Recepies',style: GoogleFonts.poppins(fontSize: 23,fontWeight: FontWeight.w700),),
-                  SizedBox(width: 3,),
-                  Image.asset('assets/images/recepie.png',height: 25,)
+                  Text(
+                    'Top Recepies',
+                    style: GoogleFonts.poppins(
+                        fontSize: 23, fontWeight: FontWeight.w700),
+                  ),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  Image.asset(
+                    'assets/images/recepie.png',
+                    height: 25,
+                  )
                 ],
               ),
             ),
@@ -154,7 +174,7 @@ class CategoriesScreen extends StatelessWidget {
               itemBuilder: (ctx, index) {
                 final catData = DUMMY_CATEGORIES[index];
                 return Container(
-                  width: 150, 
+                  width: 150,
                   margin: const EdgeInsets.symmetric(horizontal: 10),
                   child: CategoryItem(
                     catData.title,
@@ -165,15 +185,29 @@ class CategoriesScreen extends StatelessWidget {
               },
             ),
           ),
-                  SizedBox(height: 13,),
+          SizedBox(
+            height: 13,
+          ),
           Container(
             child: Padding(
-              padding: const EdgeInsets.only(top: 5,left: 25,),
+              padding: const EdgeInsets.only(
+                top: 5,
+                left: 25,
+              ),
               child: Row(
                 children: [
-                  Text('Cook with Top Chefs',style: GoogleFonts.poppins(fontSize: 23,fontWeight: FontWeight.w700),),
-                  SizedBox(width: 3,),
-                  Image.asset('assets/images/chef.png',height: 40,)
+                  Text(
+                    'Cook with Top Chefs',
+                    style: GoogleFonts.poppins(
+                        fontSize: 23, fontWeight: FontWeight.w700),
+                  ),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  Image.asset(
+                    'assets/images/chef.png',
+                    height: 40,
+                  )
                 ],
               ),
             ),
@@ -183,7 +217,7 @@ class CategoriesScreen extends StatelessWidget {
             child: GridView.builder(
               shrinkWrap: true, // Allows GridView to shrink to fit its content
               physics:
-              const NeverScrollableScrollPhysics(), // Disables GridView's own scrolling
+                  const NeverScrollableScrollPhysics(), // Disables GridView's own scrolling
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
                 childAspectRatio: 3 / 2,
