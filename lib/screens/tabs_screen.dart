@@ -28,9 +28,9 @@ class _TabsScreenState extends State<TabsScreen> {
   void initState() {
     super.initState();
     pages = [
-      CategoriesScreen(),
-      FavouritesScreen(widget.favouriteMeals),
-    ];
+  CategoriesScreen(),
+  FavouritesScreen(widget.favouriteMeals), // Favourites screen initialized
+];
   }
 
   @override
@@ -90,7 +90,16 @@ class _TabsScreenState extends State<TabsScreen> {
       drawer: MainDrawer(),
       body: pages[selectedPageIndex],
 
-      bottomNavigationBar: CustomBottomNavigationBar(onPageSelect: (int ) { },),
+      bottomNavigationBar: CustomBottomNavigationBar(onPageSelect: (int index) {
+  if (index == 3) {
+    // Navigate to FavouritesScreen when the 4th button is tapped
+    setState(() {
+      selectedPageIndex = 1; // Favourites screen is at index 1
+    });
+  } else {
+    selectPage(index);
+  }
+}),
       //   BottomNavigationBar(
       //   onTap: selectPage,
       //   backgroundColor: Colors.deepPurple,

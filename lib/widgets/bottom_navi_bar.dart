@@ -12,15 +12,18 @@ class CustomBottomNavigationBar extends StatefulWidget {
   State<CustomBottomNavigationBar> createState() =>
       _CustomBottomNavigationBarState();
 }
+
 class _CustomBottomNavigationBarState
     extends State<CustomBottomNavigationBar> {
   int _selectedIndex = 0;
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
     widget.onPageSelect(index);
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,7 +57,13 @@ class _CustomBottomNavigationBarState
   Widget _buildNavItem(int index, IconData icon, String label) {
     final isSelected = _selectedIndex == index;
     return InkWell(
-      onTap: () => _onItemTapped(index),
+      onTap: () {
+        _onItemTapped(index);
+        if (index == 3) {
+          // Navigate to FavouritesScreen when the 4th button is tapped
+          Navigator.of(context).pushNamed('/favourites');
+        }
+      },
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -62,9 +71,7 @@ class _CustomBottomNavigationBarState
             width: 45, // Increased size
             height: 45, // Increased size
             decoration: BoxDecoration(
-              color: isSelected
-                  ? Colors.white
-                  : Colors.red,
+              color: isSelected ? Colors.white : Colors.red,
               shape: BoxShape.circle,
               boxShadow: [
                 if (isSelected)
@@ -78,11 +85,11 @@ class _CustomBottomNavigationBarState
             child: Icon(
               icon,
               color: isSelected ? Colors.red : Colors.white,
-              size: 30, // Increased icon size
+              size: 30,
             ),
           ),
           if (label.isNotEmpty) ...[
-            const SizedBox(height: 6), // Adjusted spacing
+            const SizedBox(height: 1), // Adjusted spacing
             Text(
               label,
               style: TextStyle(

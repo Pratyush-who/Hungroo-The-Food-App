@@ -5,6 +5,7 @@ import 'package:hungroo/screens/meal_detail_screen.dart';
 import 'package:hungroo/screens/tabs_screen.dart';
 import 'screens/categories_screen.dart';
 import 'screens/filters_screen.dart';
+import 'screens/favourites_screen.dart';
 import 'models/meal.dart';
 
 void main() {
@@ -70,6 +71,32 @@ class _MainAppState extends State<MainApp> {
     return favouritedMeals.any((meal) => meal.id == id);
   }
 
+  // New function to handle page selection
+  void _onPageSelected(int index) {
+    String routeName;
+    switch (index) {
+      case 0:
+        routeName = '/'; // Navigate to the TabsScreen
+        break;
+      case 1:
+        routeName = '/categories'; // Navigate to CategoriesScreen
+        break;
+      case 2:
+        routeName = '/filters'; // Navigate to FiltersScreen
+        break;
+      case 3:
+        routeName = '/favourites'; // Navigate to FavouritesScreen
+        break;
+      case 4:
+        routeName = '/profile'; // Navigate to ProfileScreen (optional)
+        break;
+      default:
+        routeName = '/'; // Default route
+    }
+
+    Navigator.pushReplacementNamed(context, routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -97,6 +124,8 @@ class _MainAppState extends State<MainApp> {
         MealDetailScreen.routeName: (ctx) =>
             MealDetailScreen(toggleFav, isMealFavourite),
         FiltersScreen.routeName: (ctx) => FiltersScreen(filters, setFilters),
+        '/favourites': (ctx) =>
+            FavouritesScreen(favouritedMeals), // Added route for Favourites
       },
       // onGenerateRoute: (settings) {
       //   print(settings.name.arguments);
