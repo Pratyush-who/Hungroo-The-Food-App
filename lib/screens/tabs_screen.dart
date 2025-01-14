@@ -39,6 +39,8 @@ class _TabsScreenState extends State<TabsScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
+        elevation: 0,
+        scrolledUnderElevation: 0,
         title: Row(
           children: [
             const Text(

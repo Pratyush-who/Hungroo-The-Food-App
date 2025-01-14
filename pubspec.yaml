@@ -31,9 +31,19 @@ flutter:
     - assets/images/images.png
     - assets/images/crown.png
     - assets/images/iconss.jpg
+    - assets/images/cake.jpg
+    - assets/images/german.jpg
+    - assets/images/indian.jpg
+    - assets/images/italian.jpg
+    - assets/images/light.jpg
+    - assets/images/quickandeasy.jpg
     - assets/images/filters.png
     - assets/images/recepie.png
     - assets/images/chef.png
+    - assets/images/breakfast.webp
+    - assets/images/burger.webp
+    - assets/images/french.webp
+    - assets/images/exotic.webp
   fonts:
     - family: RobotoLight
       fonts:

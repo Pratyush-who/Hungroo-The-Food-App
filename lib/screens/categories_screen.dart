@@ -178,7 +178,7 @@ class CategoriesScreen extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(horizontal: 10),
                   child: CategoryItem(
                     catData.title,
-                    catData.color,
+                    catData.imageUrl,
                     catData.id,
                   ),
                 );
@@ -227,7 +227,7 @@ class CategoriesScreen extends StatelessWidget {
               itemCount: DUMMY_CATEGORIES.length,
               itemBuilder: (ctx, index) {
                 final catData = DUMMY_CATEGORIES[index];
-                return CategoryItem(catData.title, catData.color, catData.id);
+                return CategoryItem(catData.title, catData.imageUrl, catData.id);
               },
             ),
           ),

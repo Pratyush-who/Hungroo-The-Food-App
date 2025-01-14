@@ -1,29 +1,41 @@
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
-
 import '../models/category.dart';
 
+class Category {
+  final String id;
+  final String title;
+  final String imageUrl; // Add this
+
+  const Category({
+    required this.id,
+    required this.title,
+    required this.imageUrl, // Add this
+  });
+}
+
+
 const DUMMY_CATEGORIES = [
-   Category(id: 'c1', title: 'Italian', color: Colors.indigo),
-  const Category(id: 'c2', title: 'Quik & Ez', color: Colors.red),
-  const Category(
-      id: 'c3', title: 'Burgers', color: Color.fromARGB(255, 226, 109, 30)),
-  const Category(
-      id: 'c4', title: 'German', color: Color.fromARGB(255, 52, 236, 6)),
+   Category(id: 'c1', title: 'Italian', imageUrl: 'assets/images/italian.jpg' ),
+  Category(id: 'c2', title: 'Quik & Ez', imageUrl: 'assets/images/quickandeasy.jpg'),
+  Category(
+      id: 'c3', title: 'Burgers', imageUrl: 'assets/images/burger.webp'),
+   Category(
+      id: 'c4', title: 'German', imageUrl: 'assets/images/german.jpg'),
   const Category(
       id: 'c5',
       title: 'Light & Lovely',
-      color: Color.fromARGB(255, 22, 218, 113)),
+      imageUrl: 'assets/images/light.jpg'),
   const Category(
-      id: 'c6', title: 'Exotic', color: Color.fromARGB(255, 143, 30, 102)),
+      id: 'c6', title: 'Exotic', imageUrl: 'assets/images/exotic.webp'),
   const Category(
-      id: 'c7', title: 'Breakfast', color: Color.fromARGB(255, 255, 3, 91)),
+      id: 'c7', title: 'Breakfast', imageUrl: 'assets/images/breakfast.webp'),
   const Category(
-      id: 'c8', title: 'Indian', color: Color.fromARGB(255, 48, 121, 147)),
+      id: 'c8', title: 'Indian', imageUrl: 'assets/images/indian.jpg'),
   const Category(
-      id: 'c9', title: 'Cake', color: Color.fromARGB(255, 200, 249, 2)),
+      id: 'c9', title: 'Cake', imageUrl: 'assets/images/cake.jpg'),
   const Category(
-      id: 'c10', title: 'French', color: Color.fromARGB(255, 13, 159, 125)),
+      id: 'c10', title: 'French', imageUrl: 'assets/images/french.webp'),
 ];
 const DUMMY_MEALS = const [
   Meal(
