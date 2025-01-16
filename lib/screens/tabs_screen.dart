@@ -7,7 +7,8 @@ import 'package:hungroo/widgets/main_drawer.dart';
 import 'package:hungroo/models/meal.dart';
 
 class TabsScreen extends StatefulWidget {
-  final List<Meal> favouriteMeals;
+  final List<Meal> favouriteMeals; // List of favourite meals passed to the screen
+
   TabsScreen(this.favouriteMeals);
 
   @override
@@ -15,57 +16,58 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  late List<Widget> pages;
-  int selectedPageIndex = 0;
-
-  void selectPage(int index) {
-    setState(() {
-      selectedPageIndex = index;
-    });
-  }
+  late List<Widget> pages; // List of pages for the tabs
+  int selectedPageIndex = 0; // Index of the currently selected page
 
   @override
   void initState() {
     super.initState();
+    // Initialize the pages with Categories and Favourites screens
     pages = [
-  CategoriesScreen(),
-  FavouritesScreen(widget.favouriteMeals), // Favourites screen initialized
-];
+      CategoriesScreen(), // Categories screen
+      FavouritesScreen(widget.favouriteMeals), // Favourites screen initialized with data
+    ];
+  }
+
+  // Method to update the selected page index
+  void _onPageSelected(int index) {
+    setState(() {
+      selectedPageIndex = index; // Update the selected page index
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white, // Set the background color to white
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        scrolledUnderElevation: 0,
+        backgroundColor: Colors.white, // Set AppBar background to white
+        elevation: 0, // Remove AppBar shadow
+        scrolledUnderElevation: 0, // Remove additional shadow when scrolled
         title: Row(
           children: [
             const Text(
-              ' ',
+              ' ', // Placeholder for spacing
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w600),
             ),
             SizedBox(
-              width: 210,
+              width: 210, // Add space before the next widget
             ),
             Image.asset(
-              'assets/images/crown.png',
+              'assets/images/crown.png', // Display crown image
               height: 30,
             ),
             SizedBox(
-              width: 20,
+              width: 20, // Add space between the image and the icon
             ),
-            Icon(Icons.notifications_active_outlined),
+            Icon(Icons.notifications_active_outlined), // Notification icon
           ],
         ),
         leading: Builder(
           builder: (context) => GestureDetector(
             onTap: () => Scaffold.of(context).openDrawer(),
             child: Container(
-              margin: const EdgeInsets.only(
-                  left: 16.0, top: 10.0), // Adjust margin here
+              margin: const EdgeInsets.only(left: 16.0, top: 10.0),
               child: Image.asset(
                 'assets/images/iconss.jpg', // Custom icon for the drawer
                 fit: BoxFit.contain,
@@ -73,53 +75,14 @@ class _TabsScreenState extends State<TabsScreen> {
             ),
           ),
         ),
-        // bottom: TabBar(
-        //   labelColor: Colors.white70,
-        //   tabs: [
-        //     Tab(
-        //       icon: Icon(Icons.category),
-        //       text: 'Categories',
-        //     ),
-        //     Tab(
-        //       icon: Icon(Icons.star),
-        //       text: 'Starred',
-        //     )
-        //   ],
-        // ),
       ),
-      drawer: MainDrawer(),
-      body: pages[selectedPageIndex],
-
-      bottomNavigationBar: CustomBottomNavigationBar(onPageSelect: (int index) {
-  if (index == 3) {
-    // Navigate to FavouritesScreen when the 4th button is tapped
-    setState(() {
-      selectedPageIndex = 1; // Favourites screen is at index 1
-    });
-  } else {
-    selectPage(index);
-  }
-}),
-      //   BottomNavigationBar(
-      //   onTap: selectPage,
-      //   backgroundColor: Colors.deepPurple,
-      //   unselectedItemColor: Colors.yellow,
-      //   selectedItemColor: Colors.greenAccent,
-      //   currentIndex: selectedPageIndex,
-      //   type: BottomNavigationBarType.fixed,
-      //   items: const [
-      //     BottomNavigationBarItem(
-      //         icon: Icon(Icons.category),
-      //         label: 'Categories'),
-      //     BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Starred'),
-      //   ],
-      // ),
-      // TabBarView(
-      //   children: [
-      //     CategoriesScreen(),
-      //     FavouritesScreen(),
-      //   ],
-      // ),
+      drawer: MainDrawer(), // Include the main drawer widget
+      body: selectedPageIndex < pages.length
+          ? pages[selectedPageIndex] // Show the selected page
+          : pages[0], // Fallback to the first page if index is invalid
+      bottomNavigationBar: CustomBottomNavigationBar(
+        onPageSelect: _onPageSelected, // Use _onPageSelected for handling tab changes
+      ),
     );
   }
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hungroo/data/dummy_data.dart';
 import 'package:hungroo/screens/category_meals_screen.dart';
+import 'package:hungroo/screens/chefs_book.dart';
 import 'package:hungroo/screens/meal_detail_screen.dart';
+import 'package:hungroo/screens/profile_screen.dart';
+import 'package:hungroo/screens/qr_screen.dart';
 import 'package:hungroo/screens/tabs_screen.dart';
 import 'screens/categories_screen.dart';
 import 'screens/filters_screen.dart';
@@ -51,17 +54,19 @@ class _MainAppState extends State<MainApp> {
     });
   }
 
-  void toggleFav(String MealId) {
+  void toggleFav(String mealId) {
     final existingIndex =
-        favouritedMeals.indexWhere((meal) => meal.id == MealId);
+        favouritedMeals.indexWhere((meal) => meal.id == mealId);
     if (existingIndex >= 0) {
       setState(() {
-        favouritedMeals.removeAt(existingIndex);
+        favouritedMeals
+            .removeAt(existingIndex); // Remove if already in favourites
       });
     } else {
       setState(() {
         favouritedMeals.add(
-          DUMMY_MEALS.firstWhere((meal) => meal.id == MealId),
+          DUMMY_MEALS
+              .firstWhere((meal) => meal.id == mealId), // Add to favourites
         );
       });
     }
@@ -69,32 +74,6 @@ class _MainAppState extends State<MainApp> {
 
   bool isMealFavourite(String id) {
     return favouritedMeals.any((meal) => meal.id == id);
-  }
-
-  // New function to handle page selection
-  void _onPageSelected(int index) {
-    String routeName;
-    switch (index) {
-      case 0:
-        routeName = '/'; // Navigate to the TabsScreen
-        break;
-      case 1:
-        routeName = '/categories'; // Navigate to CategoriesScreen
-        break;
-      case 2:
-        routeName = '/filters'; // Navigate to FiltersScreen
-        break;
-      case 3:
-        routeName = '/favourites'; // Navigate to FavouritesScreen
-        break;
-      case 4:
-        routeName = '/profile'; // Navigate to ProfileScreen (optional)
-        break;
-      default:
-        routeName = '/'; // Default route
-    }
-
-    Navigator.pushReplacementNamed(context, routeName);
   }
 
   @override
@@ -124,8 +103,10 @@ class _MainAppState extends State<MainApp> {
         MealDetailScreen.routeName: (ctx) =>
             MealDetailScreen(toggleFav, isMealFavourite),
         FiltersScreen.routeName: (ctx) => FiltersScreen(filters, setFilters),
-        '/favourites': (ctx) =>
-            FavouritesScreen(favouritedMeals), // Added route for Favourites
+        '/favourites': (ctx) => FavouritesScreen(favouritedMeals),
+        '/qrcode': (ctx) => QrScreen(),
+        '/profile': (ctx) => ProfileScreen(),
+        '/chefsbook': (ctx) => ChefsBook(),
       },
       // onGenerateRoute: (settings) {
       //   print(settings.name.arguments);

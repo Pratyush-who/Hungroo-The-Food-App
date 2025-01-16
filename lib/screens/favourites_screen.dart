@@ -7,7 +7,6 @@ class FavouritesScreen extends StatelessWidget {
 
   FavouritesScreen(this.favouriteMeals);
 
-
   @override
   Widget build(BuildContext context) {
     if (favouriteMeals.isEmpty) {
@@ -17,6 +16,7 @@ class FavouritesScreen extends StatelessWidget {
     } else {
       return ListView.builder(
         itemBuilder: (ctx, index) {
+          print('Displaying: ${favouriteMeals[index].title}'); // Debugging
           return MealItem(
             id: favouriteMeals[index].id,
             title: favouriteMeals[index].title,
