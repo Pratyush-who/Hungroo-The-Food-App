@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hungroo/screens/categories_screen.dart';
+import 'package:hungroo/screens/chefs_book.dart';
 import 'package:hungroo/screens/favourites_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hungroo/screens/profile_screen.dart';
+import 'package:hungroo/screens/qr_screen.dart';
 import 'package:hungroo/widgets/bottom_navi_bar.dart';
 import 'package:hungroo/widgets/main_drawer.dart';
 import 'package:hungroo/models/meal.dart';
@@ -22,17 +25,18 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   void initState() {
     super.initState();
-    // Initialize the pages with Categories and Favourites screens
     pages = [
       CategoriesScreen(), // Categories screen
-      FavouritesScreen(widget.favouriteMeals), // Favourites screen initialized with data
+      FavouritesScreen(widget.favouriteMeals),
+      QrScreen(), 
+      ChefsBook(),
+      ProfileScreen(),
     ];
   }
 
-  // Method to update the selected page index
   void _onPageSelected(int index) {
     setState(() {
-      selectedPageIndex = index; // Update the selected page index
+      selectedPageIndex = index;
     });
   }
 

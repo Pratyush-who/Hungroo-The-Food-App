@@ -39,7 +39,11 @@ flutter:
     - assets/images/quickandeasy.jpg
     - assets/images/filters.png
     - assets/images/recepie.png
+    - assets/images/waiting.png
     - assets/images/chef.png
+    - assets/images/QRCodes.png
+    - assets/images/Profilepage.png
+    - assets/images/femalechef.png
     - assets/images/breakfast.webp
     - assets/images/burger.webp
     - assets/images/french.webp

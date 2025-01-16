@@ -21,54 +21,47 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     setState(() {
       _selectedIndex = index; // Update the selected index for visual feedback
     });
-
-    //   if (index == 2) {
-    //   Navigator.of(context).pushNamed('/qrcode');
-    // } else if (index == 3) { // Corrected index for Favourites Screen
-    //   Navigator.of(context).pushNamed('/favourites');
-    // } else if (index == 4) {
-    //   Navigator.of(context).pushNamed('/profile');
-    // } else if (index == 1) {
-    //   Navigator.of(context).pushNamed('/chefsbook');
-    // } else {
-
-    if (index == 2) {
-      Navigator.of(context).pushNamed('/qrcode');
-    } 
-    else if (index == 3) {
-      Navigator.of(context).pushNamed('/chefsbook');
-    } 
-    else if (index == 4) {
-      Navigator.of(context).pushNamed('/profile');
-    } 
-    else {
-      widget.onPageSelect(index);
-    }
+    widget.onPageSelect(index);
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 85,
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+      height: 83,
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       decoration: const BoxDecoration(
         color: Colors.white,
       ),
       child: Center(
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 10),
+          padding: const EdgeInsets.symmetric(vertical: 7),
           decoration: BoxDecoration(
             color: Colors.red,
             borderRadius: BorderRadius.circular(30),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          child: Column(
             children: [
-              _buildNavItem(0, Icons.home_outlined, ''), // Home Icon
-              _buildNavItem(1, Icons.star_border_sharp, ''), // Categories Icon
-              _buildNavItem(2, Icons.qr_code_scanner, ''), // QR Code Icon
-              _buildNavItem(3, Icons.book_outlined, ''), // Favourites Icon
-              _buildNavItem(4, Icons.person_outline, ''), // Profile Icon
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _buildNavItem(0, Icons.home_outlined, 'Home'), // Home Icon
+                  _buildNavItem(
+                      1, Icons.star_border_sharp, 'Starred'), // Categories Icon
+                  _buildNavItem(2, Icons.qr_code_scanner, 'QR Scan'), // QR Code Icon
+                  _buildNavItem(3, Icons.book_outlined, 'Chefs'), // Favourites Icon
+                  _buildNavItem(4, Icons.person_outline, 'Profile'), // Profile Icon
+                ],
+              ),
+              // const Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //   children: [
+              //     Text('Home',style: TextStyle(color: Colors.white)),
+              //     Text('Starred',style: TextStyle(color: Colors.white)),
+              //     Text('Qr Scan',style: TextStyle(color: Colors.white)),
+              //     Text('Chefs',style: TextStyle(color: Colors.white)),
+              //     Text('Profile',style: TextStyle(color: Colors.white)),
+              //   ],
+              // ),
             ],
           ),
         ),
@@ -84,8 +77,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 45,
-            height: 45,
+            width: 40,
+            height: 40,
             decoration: BoxDecoration(
               color: isSelected ? Colors.white : Colors.red,
               shape: BoxShape.circle,

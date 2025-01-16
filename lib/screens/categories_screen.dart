@@ -75,7 +75,7 @@ class CategoriesScreen extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     fontSize: 30,
                     fontWeight: FontWeight.w800,
-                    color: const Color.fromARGB(255, 228, 81, 81),
+                    color:  Colors.red,
                   ),
                 ),
               ],
@@ -121,7 +121,7 @@ class CategoriesScreen extends StatelessWidget {
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 228, 81, 81),
+                      color: Colors.red,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     padding: const EdgeInsets.all(10),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hungroo/models/meal.dart';
 import 'package:hungroo/widgets/meal_item.dart';
 
@@ -11,8 +12,29 @@ class FavouritesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     if (favouriteMeals.isEmpty) {
       return Center(
-        child: Text('You have no favourites, try adding some..!!'),
-      );
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset('assets/images/waiting.png',height: 250,),
+          const SizedBox(height: 20),
+          Text(
+            'You have not starred any recepie yet!',
+            style: GoogleFonts.roboto(
+              fontSize: 22,
+              color: Colors.grey[700],
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'Try adding some..!!',
+            style: GoogleFonts.roboto(
+              fontSize: 18,
+              color: Colors.grey[600],
+            ),
+          ),
+        ],
+      ),
+    );
     } else {
       return ListView.builder(
         itemBuilder: (ctx, index) {
