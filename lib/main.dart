@@ -60,13 +60,13 @@ class _MainAppState extends State<MainApp> {
     if (existingIndex >= 0) {
       setState(() {
         favouritedMeals
-            .removeAt(existingIndex); // Remove if already in favourites
+            .removeAt(existingIndex);
       });
     } else {
       setState(() {
         favouritedMeals.add(
           DUMMY_MEALS
-              .firstWhere((meal) => meal.id == mealId), // Add to favourites
+              .firstWhere((meal) => meal.id == mealId),
         );
       });
     }

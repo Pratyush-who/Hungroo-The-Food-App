@@ -52,16 +52,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   _buildNavItem(4, Icons.person_outline, 'Profile'), // Profile Icon
                 ],
               ),
-              // const Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-              //   children: [
-              //     Text('Home',style: TextStyle(color: Colors.white)),
-              //     Text('Starred',style: TextStyle(color: Colors.white)),
-              //     Text('Qr Scan',style: TextStyle(color: Colors.white)),
-              //     Text('Chefs',style: TextStyle(color: Colors.white)),
-              //     Text('Profile',style: TextStyle(color: Colors.white)),
-              //   ],
-              // ),
             ],
           ),
         ),
